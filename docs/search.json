@@ -1,5 +1,43 @@
 [
   {
+<<<<<<< HEAD
+=======
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "",
+    "text": "Welcome! I’m a digital marketing graduate student with 10+ years of experience in China’s sports industry, specializing in sports media rights, partnership marketing, and brand consulting.\nCurrently pursuing my Master of Science in Digital Marketing at Cal Poly Pomona, I aim to combine international marketing expertise with my sports media background to contribute to global sports organizations."
+  },
+  {
+    "objectID": "index.html#career-aspiration",
+    "href": "index.html#career-aspiration",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "🎯 Career Aspiration",
+    "text": "🎯 Career Aspiration\nI aspire to build a global career in sports marketing, where I can bridge the gap between international audiences and major sports properties. With over a decade of experience in sports media rights, brand partnerships, and business development in China, I bring a unique perspective to the evolving digital marketing landscape. My goal is to contribute to sports organizations by creating impactful, data-driven marketing strategies that enhance fan engagement, drive sponsorship value, and expand global reach—especially as I complete my Master’s in Digital Marketing at Cal Poly Pomona."
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "💼 Skills",
+    "text": "💼 Skills\nSports Marketing / Media Marketing\n\nSports Media Rights & Partnerships\n\nIntegrated Marketing Strategy\n\nBusiness Development\n\nContent Marketing, SEO & Google Analytics\n\nFluent in Mandarin and English"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "🎓 Education",
+    "text": "🎓 Education\nCal Poly Pomona, CA\nMaster of Science: Digital Marketing (Expected 08/2025)\nBeijing Technology and Business University, Beijing\nBachelor’s Degree: International Business/Trade/Commerce (07/2011)"
+  },
+  {
+    "objectID": "index.html#certifications",
+    "href": "index.html#certifications",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "🧾 Certifications",
+    "text": "🧾 Certifications\nGoogle Analytics Certification\n\nDigital Advertising Certification\n\nEmail Marketing Certification\n\nInbound Marketing Certification"
+  },
+  {
+>>>>>>> e7821bee05d5359bd9e9f15edf3cf78ca5c61705
     "objectID": "shiny-apps.html",
     "href": "shiny-apps.html",
     "title": "Essay on Shiny Apps",
@@ -49,6 +87,7 @@
     "text": "Wrap UI in titlePanel() and sidebarLayout() for structure.\nUse theme_minimal() or theme_classic() in ggplot2.\nChoose color palettes for clarity (e.g., scale_fill_brewer()).\n\nWith these tools and best practices, you’re ready to craft interactive dashboards that live on the web—and delight your users. Happy coding!"
   },
   {
+<<<<<<< HEAD
     "objectID": "index.html",
     "href": "index.html",
     "title": "Zhongyi (Yee) Sun",
@@ -91,6 +130,8 @@
     "text": "This dashboard provides a comprehensive view of marketing channel performance using the latest campaign data. Explore key metrics such as total key events, cost-per-click efficiency, and return on ad spend (ROAS).\n\n\n\n\n\n\n\n\n\n\nOverview\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\nCost Per Click\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\nReturn of Ad Spend\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\nBy Total Events\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\nBy Average ROAS\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\nOrganic Search and Direct channels drive the highest volume of key events.\nPaid channels yield higher ROAS but lower event counts.\nCombining CPC and ROAS metrics helps optimize budget allocation.\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\nTotal Events\n2446\n\n\nAvg. CPC\n0\n\n\nAvg. ROAS\n0"
   },
   {
+=======
+>>>>>>> e7821bee05d5359bd9e9f15edf3cf78ca5c61705
     "objectID": "shiny-live.html",
     "href": "shiny-live.html",
     "title": "Essay on Shiny Live",
@@ -147,6 +188,30 @@
     "text": "Shiny Live unlocks a zero‑server deployment model for R apps. By embracing WebAssembly, you can host rich, interactive dashboards on any static platform—scaling effortlessly with no backend, at the cost of startup time and package constraints. Perfect for open‑source demos, tutorials, and public dashboards.\nShiny Live lets your data truly shine in the browser."
   },
   {
+<<<<<<< HEAD
+=======
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Marketing Channel Performance Dashboard",
+    "section": "",
+    "text": "This dashboard provides a comprehensive view of marketing channel performance using the latest campaign data. Explore key metrics such as total key events, cost-per-click efficiency, and return on ad spend (ROAS)."
+  },
+  {
+    "objectID": "dashboard.html#section",
+    "href": "dashboard.html#section",
+    "title": "Marketing Channel Performance Dashboard",
+    "section": "",
+    "text": "Total Events\n2446\n\n\nAvg. CPC\n0\n\n\nAvg. ROAS\n0"
+  },
+  {
+    "objectID": "dashboard.html#column---plots",
+    "href": "dashboard.html#column---plots",
+    "title": "Marketing Channel Performance Dashboard",
+    "section": "Column - Plots",
+    "text": "Column - Plots\n\nBy Total Events\n\n\n\n\n\n\n\n\n\n\n\nBy Average ROAS"
+  },
+  {
+>>>>>>> e7821bee05d5359bd9e9f15edf3cf78ca5c61705
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",

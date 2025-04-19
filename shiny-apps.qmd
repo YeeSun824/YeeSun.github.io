@@ -1,0 +1,172 @@
+---
+title: "Essay on Shiny Apps"
+author: Zhongyi Sun
+format: html
+---
+
+# Welcome to Shiny   ![](Shiny_hex_logo.svg.png){width="100"}
+
+Imagine building a dynamic web app without writing a single line of HTML, CSS, or JavaScript—just pure R code. That’s the magic of **Shiny**! In this guide, we’ll walk through the essentials of creating an interactive Shiny app, using a real-world example so you can hit the ground running.
+
+::: callout-tip
+**Why Shiny?** - Seamless integration with R and your data - Rapid prototyping: update code and see live changes - Rich ecosystem of input widgets and output renderers
+:::
+
+------------------------------------------------------------------------
+
+## App Anatomy: UI & Server
+
+Every Shiny app has two main pieces:
+
+1.  **UI (User Interface)**: Where you place your input controls (like dropdowns and sliders) and output placeholders (plots, tables, text).
+2.  **Server**: The R code that responds to user inputs, does the data work, and sends results back to the UI.
+
+<figure caption="Basic structure of app.R">
+
+``` yaml
+ui <- fluidPage(
+  titlePanel("My App"),
+  sidebarLayout(
+    sidebarPanel(...),
+    mainPanel(...)
+  )
+)
+
+server <- function(input, output, session) {
+  # your reactive logic here
+}
+
+shinyApp(ui, server)
+```
+
+</figure>
+
+------------------------------------------------------------------------
+
+## 1. Collecting User Input
+
+Shiny offers many convenient controls:
+
+::: columns
+``` r
+selectInput(
+  inputId = "year",
+  label   = "Choose Year:",
+  choices = 2004:2022
+)
+```
+:::
+
+``` r
+sliderInput(
+  inputId = "n",
+  label   = "Top N Countries:",
+  min     = 1, max = 10,
+  value   = 3
+)
+```
+
+::: callout-tip
+## Pro tip
+
+Give each input a clear `inputId` and friendly label so users instantly know what to do.
+:::
+
+------------------------------------------------------------------------
+
+## 2. Rendering Output
+
+Matched with inputs, Shiny’s **render** functions create dynamic content:
+
+| Output | Render in server | UI placeholder      |
+|-------:|------------------|---------------------|
+|   Text | `renderText()`   | `textOutput("id")`  |
+|   Plot | `renderPlot()`   | `plotOutput("id")`  |
+|  Table | `renderTable()`  | `tableOutput("id")` |
+
+``` r
+server <- function(input, output, session) {
+  output$greeting <- renderText({
+    paste0("Hello, ", input$name, "!")
+  })
+  output$myPlot <- renderPlot({
+    # your ggplot code here
+  })
+}
+```
+
+------------------------------------------------------------------------
+
+## 3. Understanding Reactivity
+
+Shiny’s secret sauce is **reactivity**:
+
+-   **Reactive contexts** (`render*()` and `reactive({})`) re-run automatically when inputs change.
+-   Avoid heavy computation inside reactivity—load and wrangle your data once, outside of render functions.
+
+::: callout-note
+**Tip:** Use `reactive({})` for shared computed values, and `render*()` for final outputs.
+:::
+
+------------------------------------------------------------------------
+
+## 4. Hands-On: Eurovision Winners Explorer
+
+Let’s bring it all together. We’ll build a mini-app to explore Eurovision Song Contest winners.
+
+1.  **Load Data** outside of reactivity:
+
+    ``` r
+    data <- read_csv('eurovision.csv') %>%
+      filter(round == 'final')
+    ```
+
+2.  **UI**: Year selector + Top‑N slider + Plot + Dynamic title
+
+    ::: columns
+    ``` r
+    sidebarPanel(
+      selectInput('year', 'Year', 2004:2022),
+      sliderInput('n', 'Top N:', 1, 10, 3)
+    )
+    ```
+    :::
+
+    ``` r
+    mainPanel(
+      textOutput('plotTitle'),
+      plotOutput('resultsPlot')
+    )
+    ```
+
+3.  **Server**:
+
+    ``` r
+    server <- function(input, output, session) {
+      output$resultsPlot <- renderPlot({
+        df <- data %>%
+          filter(year == input$year) %>%
+          slice_max(points, n = input$n)
+        ggplot(df, aes(reorder(country, points), points, fill = country)) +
+          geom_col(show.legend = FALSE) + coord_flip()
+      })
+
+      output$plotTitle <- renderText({
+        paste('Top', input$n, 'in Eurovision', input$year)
+      })
+    }
+    ```
+
+::: callout-tip
+Open `shinyApp(ui, server)` and watch the magic happen!
+:::
+
+------------------------------------------------------------------------
+
+## 5. Layout & Polish
+
+-   Wrap UI in `titlePanel()` and `sidebarLayout()` for structure.
+-   Use `theme_minimal()` or `theme_classic()` in ggplot2.
+-   Choose color palettes for clarity (e.g., `scale_fill_brewer()`).
+
+With these tools and best practices, you’re ready to craft interactive dashboards that live on the web—and delight your users. Happy coding!

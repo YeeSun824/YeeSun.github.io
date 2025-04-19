@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "My Website"
+  navbar:
+    left:
+      - text: Home
+        file: index.qmd
+      - text: Dashboard
+        file: dashboard.qmd
+    right:
+      - text: Shiny Apps
+        file: shiny-apps.qmd
+      - text: Shiny Live
+        file: shiny-live.qmd
+
+format:
+  html:
+    theme: darkly
+    toc: true
+    backgroundcolor: ""
+    fontcolor: ""
+    linkcolor: ""
+    mainfont: "sans-serif"
+    fontsize: 20px

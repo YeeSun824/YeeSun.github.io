@@ -1,0 +1,59 @@
+---
+title: "Zhongyi (Yee) Sun"
+subtitle: "Sports Media Professional | Digital Marketing"
+image: profile.JPG
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/zhongyi-sun-528912ab/
+---
+
+Welcome! I'm a digital marketing graduate student with 10+ years of experience in China's sports industry, specializing in **sports media rights**, **partnership marketing**, and **brand consulting**.
+
+Currently pursuing my **Master of Science in Digital Marketing** at **Cal Poly Pomona**, I aim to combine international marketing expertise with my sports media background to contribute to global sports organizations.
+
+------------------------------------------------------------------------
+
+## 🎯 Career Aspiration
+
+I aspire to build a global career in **sports marketing**, where I can bridge the gap between international audiences and major sports properties. With over a decade of experience in **sports media rights, brand partnerships, and business development** in China, I bring a unique perspective to the evolving digital marketing landscape. My goal is to contribute to sports organizations by creating impactful, data-driven marketing strategies that enhance fan engagement, drive sponsorship value, and expand global reach—especially as I complete my **Master’s in Digital Marketing** at Cal Poly Pomona.
+
+------------------------------------------------------------------------
+
+## 💼 Skills
+
+Sports Marketing / Media Marketing\
+
+Sports Media Rights & Partnerships\
+
+Integrated Marketing Strategy\
+
+Business Development\
+
+Content Marketing, SEO & Google Analytics\
+
+Fluent in Mandarin and English
+
+------------------------------------------------------------------------
+
+## 🎓 Education
+
+**Cal Poly Pomona**, CA\
+*Master of Science: Digital Marketing* (Expected 08/2025)
+
+**Beijing Technology and Business University**, Beijing\
+*Bachelor's Degree: International Business/Trade/Commerce* (07/2011)
+
+------------------------------------------------------------------------
+
+## 🧾 Certifications
+
+Google Analytics Certification\
+
+Digital Advertising Certification\
+
+Email Marketing Certification\
+
+Inbound Marketing Certification

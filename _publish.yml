@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: ba2c1c22-8897-4841-8c66-ae12ac312eaa
+      url: https://yeesun.quarto.pub/my-website

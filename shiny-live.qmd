@@ -1,0 +1,73 @@
+---
+title: "Essay on Shiny Live"
+author: Zhongyi Sun
+format: html
+---
+
+# Introducing Shiny Live   ![](shinylive-blog-2.png){width="150"}
+
+Imagine your Shiny app running entirely in the user’s browser, without a central R server under heavy load. That’s the promise of **Shiny Live**—a serverless approach that packages your app as static files and delivers a full WebAssembly‑powered R runtime directly to the client.
+
+::: callout-tip
+With Shiny Live you use `shiny_live::export_app()` to turn your app into a self‑contained folder. Users simply visit a URL and your R code runs locally in their browser—no dedicated server needed.
+:::
+
+## Traditional Shiny vs. Shiny Live
+
+Traditional Shiny apps depend on a backend R server (for example, Posit Connect or shiny-server). The browser acts as a thin client that sends user inputs to the server, and all computation and application state live on that centralized machine. This model makes it straightforward to secure secrets, manage database credentials, and guard sensitive data. By contrast, Shiny Live moves the R interpreter into the browser via WebAssembly. Users download the app files once, and thereafter, all plotting, data processing, and reactive updates happen locally. This makes Shiny Live a natural fit for static hosting platforms like GitHub Pages, where no active R server is required.
+
+## How Shiny Live Works
+
+To deploy an app with Shiny Live, you first call `shiny_live::export_app()`, which generates a WebR artifact containing your app’s code and dependencies. Next, you serve that output folder over HTTP—GitHub Pages or any static host will do. When a user navigates to the URL, their browser downloads the bundle and boots an in‑browser R runtime. From that point forward, all reactivity, plots, and data wrangling execute locally in the browser, eliminating server maintenance altogether.
+
+## Key Differences & Considerations
+
+| Feature | Traditional Shiny | Shiny Live |
+|------------------------|------------------------|------------------------|
+| **Infrastructure** | Central R server | Static files + CDN |
+| **Scalability** | Limited by server capacity | Scales per user—each client runs locally |
+| **Startup time** | Seconds (warm server) | \~5–10 sec (download + Wasm init) |
+| **Security** | Secrets & DB creds secure | No hidden secrets—code/data in browser |
+| **Dependencies** | Any CRAN/Bioconductor pkg | Only Wasm‑compatible packages |
+| **Offline support** | Requires server | Cached, runs offline after initial load |
+
+## Pros & Cons of Shiny Live
+
+### Advantages
+
+Shiny Live eliminates the need to maintain R infrastructure, dramatically lowers hosting costs by leveraging free static platforms, and scales naturally because each user’s browser does the work. After the initial download, apps can even run offline thanks to browser caching.
+
+### Limitations
+
+On the other hand, first‑time visitors face a 5–10 second startup latency while the Wasm‑based runtime initializes. Because all code and data are delivered to the client, no secrets or private credentials can be protected. Only packages that compile under WebR are supported, so libraries relying on native C dependencies (e.g. `curl`) won’t work. Finally, very large applications may produce bundles that are too big for practical download times.
+
+## When to Choose Shiny Live
+
+Shiny Live shines for public educational demos, interactive package vignettes on GitHub Pages, static dashboards without private back‑ends, and any scenario where client‑side computation (light data wrangling and plotting) is sufficient. If your app must connect to private databases, guard sensitive credentials, or use unsupported R packages, stick with a traditional Shiny server deployment.
+
+::: callout-tip
+**Avoid** Shiny Live if you need to connect to private databases, use sensitive credentials, or rely on unsupported R packages.
+:::
+
+## Getting Started
+
+``` bash
+# Install dependencies
+install.packages("webR")
+# Export your app
+shiny_live::export_app(
+  app_dir = "./myapp",
+  out_dir = "./docs",
+  launch = FALSE
+)
+# Configure GitHub Pages on 'docs/' folder
+# Commit & push—GitHub Actions will publish your app!
+```
+
+------------------------------------------------------------------------
+
+## Summary
+
+Shiny Live unlocks a **zero‑server** deployment model for R apps. By embracing WebAssembly, you can host rich, interactive dashboards on any static platform—scaling effortlessly with no backend, at the cost of startup time and package constraints. Perfect for open‑source demos, tutorials, and public dashboards.
+
+Shiny Live lets your data truly shine in the browser.

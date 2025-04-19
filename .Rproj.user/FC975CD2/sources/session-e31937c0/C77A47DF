@@ -3,7 +3,7 @@
     "path": "~/IBM6400/My Website/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "1610740512",
     "contents": "",
     "dirty": false,
     "created": 1744830575052.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "24,16",
+        "cursorPosition": "2,18",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1744858635,
+    "lastKnownWriteTime": 1745087604,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1744858635487,
+    "last_content_update": 1745087604950,
     "read_only": false,
     "read_only_alternatives": []
 }

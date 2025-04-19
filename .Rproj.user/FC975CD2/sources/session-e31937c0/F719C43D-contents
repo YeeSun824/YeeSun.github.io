@@ -4,7 +4,7 @@ author: Zhongyi Sun
 format: html
 ---
 
-# Welcome to Shiny   ![](Shiny_hex_logo.svg.png){width="100"}
+# Welcome to Shiny ![](Shiny_hex_logo.svg.png){width="100"}
 
 Imagine building a dynamic web app without writing a single line of HTML, CSS, or JavaScript—just pure R code. That’s the magic of **Shiny**! In this guide, we’ll walk through the essentials of creating an interactive Shiny app, using a real-world example so you can hit the ground running.
 

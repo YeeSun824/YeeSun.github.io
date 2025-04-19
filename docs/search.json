@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "",
+    "text": "Welcome! I’m a digital marketing graduate student with 10+ years of experience in China’s sports industry, specializing in sports media rights, partnership marketing, and brand consulting.\nCurrently pursuing my Master of Science in Digital Marketing at Cal Poly Pomona, I aim to combine international marketing expertise with my sports media background to contribute to global sports organizations."
+  },
+  {
+    "objectID": "index.html#career-aspiration",
+    "href": "index.html#career-aspiration",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "🎯 Career Aspiration",
+    "text": "🎯 Career Aspiration\nI aspire to build a global career in sports marketing, where I can bridge the gap between international audiences and major sports properties. With over a decade of experience in sports media rights, brand partnerships, and business development in China, I bring a unique perspective to the evolving digital marketing landscape. My goal is to contribute to sports organizations by creating impactful, data-driven marketing strategies that enhance fan engagement, drive sponsorship value, and expand global reach—especially as I complete my Master’s in Digital Marketing at Cal Poly Pomona."
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "💼 Skills",
+    "text": "💼 Skills\nSports Marketing / Media Marketing\n\nSports Media Rights & Partnerships\n\nIntegrated Marketing Strategy\n\nBusiness Development\n\nContent Marketing, SEO & Google Analytics\n\nFluent in Mandarin and English"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "🎓 Education",
+    "text": "🎓 Education\nCal Poly Pomona, CA\nMaster of Science: Digital Marketing (Expected 08/2025)\nBeijing Technology and Business University, Beijing\nBachelor’s Degree: International Business/Trade/Commerce (07/2011)"
+  },
+  {
+    "objectID": "index.html#certifications",
+    "href": "index.html#certifications",
+    "title": "Zhongyi (Yee) Sun",
+    "section": "🧾 Certifications",
+    "text": "🧾 Certifications\nGoogle Analytics Certification\n\nDigital Advertising Certification\n\nEmail Marketing Certification\n\nInbound Marketing Certification"
+  },
+  {
+    "objectID": "shiny-apps.html",
+    "href": "shiny-apps.html",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Imagine building a dynamic web app without writing a single line of HTML, CSS, or JavaScript—just pure R code. That’s the magic of Shiny! In this guide, we’ll walk through the essentials of creating an interactive Shiny app, using a real-world example so you can hit the ground running.\n\n\n\n\n\n\nTip\n\n\n\nWhy Shiny? - Seamless integration with R and your data - Rapid prototyping: update code and see live changes - Rich ecosystem of input widgets and output renderers\n\n\n\n\n\nEvery Shiny app has two main pieces:\n\nUI (User Interface): Where you place your input controls (like dropdowns and sliders) and output placeholders (plots, tables, text).\nServer: The R code that responds to user inputs, does the data work, and sends results back to the UI.\n\n\nui &lt;- fluidPage(\n  titlePanel(\"My App\"),\n  sidebarLayout(\n    sidebarPanel(...),\n    mainPanel(...)\n  )\n)\n\nserver &lt;- function(input, output, session) {\n  # your reactive logic here\n}\n\nshinyApp(ui, server)\n\n\n\n\n\nShiny offers many convenient controls:\n\nselectInput(\n  inputId = \"year\",\n  label   = \"Choose Year:\",\n  choices = 2004:2022\n)\n\nsliderInput(\n  inputId = \"n\",\n  label   = \"Top N Countries:\",\n  min     = 1, max = 10,\n  value   = 3\n)\n\n\n\n\n\n\nPro tip\n\n\n\nGive each input a clear inputId and friendly label so users instantly know what to do.\n\n\n\n\n\n\nMatched with inputs, Shiny’s render functions create dynamic content:\n\n\n\nOutput\nRender in server\nUI placeholder\n\n\n\n\nText\nrenderText()\ntextOutput(\"id\")\n\n\nPlot\nrenderPlot()\nplotOutput(\"id\")\n\n\nTable\nrenderTable()\ntableOutput(\"id\")\n\n\n\nserver &lt;- function(input, output, session) {\n  output$greeting &lt;- renderText({\n    paste0(\"Hello, \", input$name, \"!\")\n  })\n  output$myPlot &lt;- renderPlot({\n    # your ggplot code here\n  })\n}\n\n\n\n\nShiny’s secret sauce is reactivity:\n\nReactive contexts (render*() and reactive({})) re-run automatically when inputs change.\nAvoid heavy computation inside reactivity—load and wrangle your data once, outside of render functions.\n\n\n\n\n\n\n\nNote\n\n\n\nTip: Use reactive({}) for shared computed values, and render*() for final outputs.\n\n\n\n\n\n\nLet’s bring it all together. We’ll build a mini-app to explore Eurovision Song Contest winners.\n\nLoad Data outside of reactivity:\ndata &lt;- read_csv('eurovision.csv') %&gt;%\n  filter(round == 'final')\nUI: Year selector + Top‑N slider + Plot + Dynamic title\n\nsidebarPanel(\n  selectInput('year', 'Year', 2004:2022),\n  sliderInput('n', 'Top N:', 1, 10, 3)\n)\n\nmainPanel(\n  textOutput('plotTitle'),\n  plotOutput('resultsPlot')\n)\nServer:\nserver &lt;- function(input, output, session) {\n  output$resultsPlot &lt;- renderPlot({\n    df &lt;- data %&gt;%\n      filter(year == input$year) %&gt;%\n      slice_max(points, n = input$n)\n    ggplot(df, aes(reorder(country, points), points, fill = country)) +\n      geom_col(show.legend = FALSE) + coord_flip()\n  })\n\n  output$plotTitle &lt;- renderText({\n    paste('Top', input$n, 'in Eurovision', input$year)\n  })\n}\n\n\n\n\n\n\n\nTip\n\n\n\nOpen shinyApp(ui, server) and watch the magic happen!\n\n\n\n\n\n\n\nWrap UI in titlePanel() and sidebarLayout() for structure.\nUse theme_minimal() or theme_classic() in ggplot2.\nChoose color palettes for clarity (e.g., scale_fill_brewer()).\n\nWith these tools and best practices, you’re ready to craft interactive dashboards that live on the web—and delight your users. Happy coding!"
+  },
+  {
+    "objectID": "shiny-apps.html#app-anatomy-ui-server",
+    "href": "shiny-apps.html#app-anatomy-ui-server",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Every Shiny app has two main pieces:\n\nUI (User Interface): Where you place your input controls (like dropdowns and sliders) and output placeholders (plots, tables, text).\nServer: The R code that responds to user inputs, does the data work, and sends results back to the UI.\n\n\nui &lt;- fluidPage(\n  titlePanel(\"My App\"),\n  sidebarLayout(\n    sidebarPanel(...),\n    mainPanel(...)\n  )\n)\n\nserver &lt;- function(input, output, session) {\n  # your reactive logic here\n}\n\nshinyApp(ui, server)"
+  },
+  {
+    "objectID": "shiny-apps.html#collecting-user-input",
+    "href": "shiny-apps.html#collecting-user-input",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Shiny offers many convenient controls:\n\nselectInput(\n  inputId = \"year\",\n  label   = \"Choose Year:\",\n  choices = 2004:2022\n)\n\nsliderInput(\n  inputId = \"n\",\n  label   = \"Top N Countries:\",\n  min     = 1, max = 10,\n  value   = 3\n)\n\n\n\n\n\n\nPro tip\n\n\n\nGive each input a clear inputId and friendly label so users instantly know what to do."
+  },
+  {
+    "objectID": "shiny-apps.html#rendering-output",
+    "href": "shiny-apps.html#rendering-output",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Matched with inputs, Shiny’s render functions create dynamic content:\n\n\n\nOutput\nRender in server\nUI placeholder\n\n\n\n\nText\nrenderText()\ntextOutput(\"id\")\n\n\nPlot\nrenderPlot()\nplotOutput(\"id\")\n\n\nTable\nrenderTable()\ntableOutput(\"id\")\n\n\n\nserver &lt;- function(input, output, session) {\n  output$greeting &lt;- renderText({\n    paste0(\"Hello, \", input$name, \"!\")\n  })\n  output$myPlot &lt;- renderPlot({\n    # your ggplot code here\n  })\n}"
+  },
+  {
+    "objectID": "shiny-apps.html#understanding-reactivity",
+    "href": "shiny-apps.html#understanding-reactivity",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Shiny’s secret sauce is reactivity:\n\nReactive contexts (render*() and reactive({})) re-run automatically when inputs change.\nAvoid heavy computation inside reactivity—load and wrangle your data once, outside of render functions.\n\n\n\n\n\n\n\nNote\n\n\n\nTip: Use reactive({}) for shared computed values, and render*() for final outputs."
+  },
+  {
+    "objectID": "shiny-apps.html#hands-on-eurovision-winners-explorer",
+    "href": "shiny-apps.html#hands-on-eurovision-winners-explorer",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Let’s bring it all together. We’ll build a mini-app to explore Eurovision Song Contest winners.\n\nLoad Data outside of reactivity:\ndata &lt;- read_csv('eurovision.csv') %&gt;%\n  filter(round == 'final')\nUI: Year selector + Top‑N slider + Plot + Dynamic title\n\nsidebarPanel(\n  selectInput('year', 'Year', 2004:2022),\n  sliderInput('n', 'Top N:', 1, 10, 3)\n)\n\nmainPanel(\n  textOutput('plotTitle'),\n  plotOutput('resultsPlot')\n)\nServer:\nserver &lt;- function(input, output, session) {\n  output$resultsPlot &lt;- renderPlot({\n    df &lt;- data %&gt;%\n      filter(year == input$year) %&gt;%\n      slice_max(points, n = input$n)\n    ggplot(df, aes(reorder(country, points), points, fill = country)) +\n      geom_col(show.legend = FALSE) + coord_flip()\n  })\n\n  output$plotTitle &lt;- renderText({\n    paste('Top', input$n, 'in Eurovision', input$year)\n  })\n}\n\n\n\n\n\n\n\nTip\n\n\n\nOpen shinyApp(ui, server) and watch the magic happen!"
+  },
+  {
+    "objectID": "shiny-apps.html#layout-polish",
+    "href": "shiny-apps.html#layout-polish",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Wrap UI in titlePanel() and sidebarLayout() for structure.\nUse theme_minimal() or theme_classic() in ggplot2.\nChoose color palettes for clarity (e.g., scale_fill_brewer()).\n\nWith these tools and best practices, you’re ready to craft interactive dashboards that live on the web—and delight your users. Happy coding!"
+  },
+  {
+    "objectID": "shiny-live.html",
+    "href": "shiny-live.html",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "Imagine your Shiny app running entirely in the user’s browser, without a central R server under heavy load. That’s the promise of Shiny Live—a serverless approach that packages your app as static files and delivers a full WebAssembly‑powered R runtime directly to the client.\n\n\n\n\n\n\nTip\n\n\n\nWith Shiny Live you use shiny_live::export_app() to turn your app into a self‑contained folder. Users simply visit a URL and your R code runs locally in their browser—no dedicated server needed.\n\n\n\n\nTraditional Shiny apps depend on a backend R server (for example, Posit Connect or shiny-server). The browser acts as a thin client that sends user inputs to the server, and all computation and application state live on that centralized machine. This model makes it straightforward to secure secrets, manage database credentials, and guard sensitive data. By contrast, Shiny Live moves the R interpreter into the browser via WebAssembly. Users download the app files once, and thereafter, all plotting, data processing, and reactive updates happen locally. This makes Shiny Live a natural fit for static hosting platforms like GitHub Pages, where no active R server is required.\n\n\n\nTo deploy an app with Shiny Live, you first call shiny_live::export_app(), which generates a WebR artifact containing your app’s code and dependencies. Next, you serve that output folder over HTTP—GitHub Pages or any static host will do. When a user navigates to the URL, their browser downloads the bundle and boots an in‑browser R runtime. From that point forward, all reactivity, plots, and data wrangling execute locally in the browser, eliminating server maintenance altogether.\n\n\n\n\n\n\n\n\n\n\n\nFeature\nTraditional Shiny\nShiny Live\n\n\n\n\nInfrastructure\nCentral R server\nStatic files + CDN\n\n\nScalability\nLimited by server capacity\nScales per user—each client runs locally\n\n\nStartup time\nSeconds (warm server)\n~5–10 sec (download + Wasm init)\n\n\nSecurity\nSecrets & DB creds secure\nNo hidden secrets—code/data in browser\n\n\nDependencies\nAny CRAN/Bioconductor pkg\nOnly Wasm‑compatible packages\n\n\nOffline support\nRequires server\nCached, runs offline after initial load\n\n\n\n\n\n\n\n\nShiny Live eliminates the need to maintain R infrastructure, dramatically lowers hosting costs by leveraging free static platforms, and scales naturally because each user’s browser does the work. After the initial download, apps can even run offline thanks to browser caching.\n\n\n\nOn the other hand, first‑time visitors face a 5–10 second startup latency while the Wasm‑based runtime initializes. Because all code and data are delivered to the client, no secrets or private credentials can be protected. Only packages that compile under WebR are supported, so libraries relying on native C dependencies (e.g. curl) won’t work. Finally, very large applications may produce bundles that are too big for practical download times.\n\n\n\n\nShiny Live shines for public educational demos, interactive package vignettes on GitHub Pages, static dashboards without private back‑ends, and any scenario where client‑side computation (light data wrangling and plotting) is sufficient. If your app must connect to private databases, guard sensitive credentials, or use unsupported R packages, stick with a traditional Shiny server deployment.\n\n\n\n\n\n\nTip\n\n\n\nAvoid Shiny Live if you need to connect to private databases, use sensitive credentials, or rely on unsupported R packages.\n\n\n\n\n\n# Install dependencies\ninstall.packages(\"webR\")\n# Export your app\nshiny_live::export_app(\n  app_dir = \"./myapp\",\n  out_dir = \"./docs\",\n  launch = FALSE\n)\n# Configure GitHub Pages on 'docs/' folder\n# Commit & push—GitHub Actions will publish your app!\n\n\n\n\nShiny Live unlocks a zero‑server deployment model for R apps. By embracing WebAssembly, you can host rich, interactive dashboards on any static platform—scaling effortlessly with no backend, at the cost of startup time and package constraints. Perfect for open‑source demos, tutorials, and public dashboards.\nShiny Live lets your data truly shine in the browser."
+  },
+  {
+    "objectID": "shiny-live.html#traditional-shiny-vs.-shiny-live",
+    "href": "shiny-live.html#traditional-shiny-vs.-shiny-live",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "Traditional Shiny apps depend on a backend R server (for example, Posit Connect or shiny-server). The browser acts as a thin client that sends user inputs to the server, and all computation and application state live on that centralized machine. This model makes it straightforward to secure secrets, manage database credentials, and guard sensitive data. By contrast, Shiny Live moves the R interpreter into the browser via WebAssembly. Users download the app files once, and thereafter, all plotting, data processing, and reactive updates happen locally. This makes Shiny Live a natural fit for static hosting platforms like GitHub Pages, where no active R server is required."
+  },
+  {
+    "objectID": "shiny-live.html#how-shiny-live-works",
+    "href": "shiny-live.html#how-shiny-live-works",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "To deploy an app with Shiny Live, you first call shiny_live::export_app(), which generates a WebR artifact containing your app’s code and dependencies. Next, you serve that output folder over HTTP—GitHub Pages or any static host will do. When a user navigates to the URL, their browser downloads the bundle and boots an in‑browser R runtime. From that point forward, all reactivity, plots, and data wrangling execute locally in the browser, eliminating server maintenance altogether."
+  },
+  {
+    "objectID": "shiny-live.html#key-differences-considerations",
+    "href": "shiny-live.html#key-differences-considerations",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "Feature\nTraditional Shiny\nShiny Live\n\n\n\n\nInfrastructure\nCentral R server\nStatic files + CDN\n\n\nScalability\nLimited by server capacity\nScales per user—each client runs locally\n\n\nStartup time\nSeconds (warm server)\n~5–10 sec (download + Wasm init)\n\n\nSecurity\nSecrets & DB creds secure\nNo hidden secrets—code/data in browser\n\n\nDependencies\nAny CRAN/Bioconductor pkg\nOnly Wasm‑compatible packages\n\n\nOffline support\nRequires server\nCached, runs offline after initial load"
+  },
+  {
+    "objectID": "shiny-live.html#pros-cons-of-shiny-live",
+    "href": "shiny-live.html#pros-cons-of-shiny-live",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "Shiny Live eliminates the need to maintain R infrastructure, dramatically lowers hosting costs by leveraging free static platforms, and scales naturally because each user’s browser does the work. After the initial download, apps can even run offline thanks to browser caching.\n\n\n\nOn the other hand, first‑time visitors face a 5–10 second startup latency while the Wasm‑based runtime initializes. Because all code and data are delivered to the client, no secrets or private credentials can be protected. Only packages that compile under WebR are supported, so libraries relying on native C dependencies (e.g. curl) won’t work. Finally, very large applications may produce bundles that are too big for practical download times."
+  },
+  {
+    "objectID": "shiny-live.html#when-to-choose-shiny-live",
+    "href": "shiny-live.html#when-to-choose-shiny-live",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "Shiny Live shines for public educational demos, interactive package vignettes on GitHub Pages, static dashboards without private back‑ends, and any scenario where client‑side computation (light data wrangling and plotting) is sufficient. If your app must connect to private databases, guard sensitive credentials, or use unsupported R packages, stick with a traditional Shiny server deployment.\n\n\n\n\n\n\nTip\n\n\n\nAvoid Shiny Live if you need to connect to private databases, use sensitive credentials, or rely on unsupported R packages."
+  },
+  {
+    "objectID": "shiny-live.html#getting-started",
+    "href": "shiny-live.html#getting-started",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "# Install dependencies\ninstall.packages(\"webR\")\n# Export your app\nshiny_live::export_app(\n  app_dir = \"./myapp\",\n  out_dir = \"./docs\",\n  launch = FALSE\n)\n# Configure GitHub Pages on 'docs/' folder\n# Commit & push—GitHub Actions will publish your app!"
+  },
+  {
+    "objectID": "shiny-live.html#summary",
+    "href": "shiny-live.html#summary",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "Shiny Live unlocks a zero‑server deployment model for R apps. By embracing WebAssembly, you can host rich, interactive dashboards on any static platform—scaling effortlessly with no backend, at the cost of startup time and package constraints. Perfect for open‑source demos, tutorials, and public dashboards.\nShiny Live lets your data truly shine in the browser."
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "My Website",
+    "section": "",
+    "text": "This dashboard provides a comprehensive view of marketing channel performance using the latest campaign data. Explore key metrics such as total key events, cost-per-click efficiency, and return on ad spend (ROAS).\n\n\n\n\n\n\n\n\n\n\nOverview\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\nCost Per Click\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\nReturn of Ad Spend\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\nBy Total Events\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\nBy Average ROAS\n\n\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\n\nOrganic Search and Direct channels drive the highest volume of key events.\nPaid channels yield higher ROAS but lower event counts.\nCombining CPC and ROAS metrics helps optimize budget allocation.\n\n\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\nTotal Events\n2446\n\n\nAvg. CPC\n0\n\n\nAvg. ROAS\n0"
+  },
+  {
+    "objectID": "dashboard.html#section",
+    "href": "dashboard.html#section",
+    "title": "Marketing Channel Performance Dashboard",
+    "section": "",
+    "text": "Total Events\n2446\n\n\nAvg. CPC\n0\n\n\nAvg. ROAS\n0"
+  },
+  {
+    "objectID": "dashboard.html#column---plots",
+    "href": "dashboard.html#column---plots",
+    "title": "Marketing Channel Performance Dashboard",
+    "section": "Column - Plots",
+    "text": "Column - Plots\n\nBy Total Events\n\n\n\n\n\n\n\n\n\n\n\nBy Average ROAS"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]

@@ -1,0 +1,150 @@
+---
+title: "Marketing Channel Performance Dashboard"
+author: "Zhongyi (Yee) Sun"
+format:
+  dashboard:
+    logo: productfolio-logo-wht-1.png
+    reader-mode: false
+    page-layout: full
+    orientation: rows
+    sidebar:
+      collapse: true
+    navbar:
+      background: secondary
+execute:
+  freeze: auto
+---
+
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(readr)
+library(kableExtra)
+
+# Load data
+raw <- read_csv("All_channels.csv")
+# Process data
+processed <- raw %>%
+  rename(
+    channel_group = `Primary channel group (Default Channel Group)`,
+    key_events = `Key events`,
+    ads_cpc = `Ads cost per click`,
+    roas = `Return on ad spend`
+  ) %>%
+  group_by(channel_group) %>%
+  summarise(
+    total_events = sum(key_events, na.rm = TRUE),
+    avg_cpc = mean(ads_cpc, na.rm = TRUE),
+    avg_roas = mean(roas, na.rm = TRUE)
+  ) %>%
+  ungroup()
+```
+
+::: {card="📊 Overview"}
+This dashboard provides a comprehensive view of **marketing channel performance** using the latest campaign data. Explore key metrics such as total key events, cost-per-click efficiency, and return on ad spend (ROAS).
+:::
+
+##  {.sidebar}
+
+::: {value-box}
+**Total Events**\
+`r sum(processed$total_events)`
+:::
+
+::: {value-box}
+**Avg. CPC**\
+`r round(mean(processed$avg_cpc, na.rm = TRUE), 2)`
+:::
+
+::: {value-box}
+**Avg. ROAS**\
+`r round(mean(processed$avg_roas, na.rm = TRUE), 2)`
+:::
+
+## 
+
+------------------------------------------------------------------------
+
+::: {card="🔹 Scatter: Events vs ROAS"}
+```{r fig.width=8, fig.height=4}
+#| title: Overview
+ggplot(processed, aes(x = total_events, y = avg_roas, color = channel_group)) +
+  geom_point(size = 4) +
+  geom_smooth(method = "lm", se = FALSE, color = "#333333") +
+  theme_minimal() +
+  scale_color_brewer(palette = "Dark2") +
+  labs(
+    x = "Total Key Events",
+    y = "Average ROAS",
+    color = "Channel Group"
+  )
+```
+:::
+
+------------------------------------------------------------------------
+
+:::: {card}
+::: {columns}
+```{r fig.width=6, fig.height=4}
+#| title: Cost Per Click
+processed %>%
+  ggplot(aes(x = reorder(channel_group, avg_cpc), y = avg_cpc, fill = channel_group)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  theme_classic() +
+  scale_fill_brewer(palette = "Paired") +
+  labs(x = "Channel Group", y = "Avg CPC")
+```
+:::
+
+```{r fig.width=6, fig.height=4}
+#| title: Return of Ad Spend
+processed %>%
+  ggplot(aes(x = avg_roas)) +
+  geom_histogram(binwidth = 0.1, fill = "#007bff", color = "white") +
+  theme_minimal() +
+  labs(x = "Average ROAS", y = "Channel Count")
+```
+::::
+
+------------------------------------------------------------------------
+
+::: {.tabset card="📑 Top Channels"}
+## Column - Plots
+
+### By Total Events
+
+```{r fig.width=8, fig.height=4}
+#| title: By Total Events
+processed %>%
+  slice_max(total_events, n = 5) %>%
+  ggplot(aes(x = reorder(channel_group, total_events), y = total_events, fill = channel_group)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  theme_minimal() +
+  labs(x = "Channel Group", y = "Total Events")
+```
+
+### By Average ROAS
+
+```{r fig.width=8, fig.height=4}
+#| title: By Average ROAS
+processed %>%
+  slice_max(avg_roas, n = 5) %>%
+  ggplot(aes(x = reorder(channel_group, avg_roas), y = avg_roas, fill = channel_group)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  theme_minimal() +
+  labs(x = "Channel Group", y = "Average ROAS")
+```
+:::
+
+------------------------------------------------------------------------
+
+::: {card="📌 Key Insights"}
+-   **Organic Search** and **Direct** channels drive the highest volume of key events.
+-   **Paid channels** yield higher ROAS but lower event counts.
+-   Combining CPC and ROAS metrics helps optimize budget allocation.
+:::
+
+------------------------------------------------------------------------

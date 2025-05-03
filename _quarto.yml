@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Zhongyi Sun's Portfolio"
+  navbar:
+    left:
+      - text: Home
+        file: index.qmd
+      - text: Résumé
+        file: resume.qmd
+      - text: Projects
+        file: projects.qmd
+    right:
+      - text: Dashboard
+        file: dashboard.qmd
+      - text: Shiny-Apps
+        file: shiny-apps.qmd
+      - text: Shiny-Live
+        file: shiny-live.qmd
+page-footer:
+    center: "© 2025 Zhongyi Sun"
+format:
+  html:
+    theme: darkly
+    toc: true
+    backgroundcolor: ""
+    fontcolor: ""
+    linkcolor: ""
+    mainfont: "sans-serif"
+    fontsize: 20px

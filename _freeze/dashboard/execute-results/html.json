@@ -1,0 +1,17 @@
+{
+  "hash": "69e3e0564597c003ea7471a073dbd239",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Marketing Channel Performance Dashboard\"\nauthor: \"Zhongyi (Yee) Sun\"\nformat:\n  dashboard:\n    logo: productfolio-logo-wht-1.png\n    reader-mode: false\n    page-layout: full\n    orientation: rows\n    sidebar:\n      collapse: true\n    navbar:\n      background: secondary\nexecute:\n  freeze: auto\n---\n\n\n\n::: {card=\"📊 Overview\"}\nThis dashboard provides a comprehensive view of **marketing channel performance** using the latest campaign data. Explore key metrics such as total key events, cost-per-click efficiency, and return on ad spend (ROAS).\n:::\n\n##  {.sidebar}\n\n::: {value-box}\n**Total Events**\\\n2446\n:::\n\n::: {value-box}\n**Avg. CPC**\\\n0\n:::\n\n::: {value-box}\n**Avg. ROAS**\\\n0\n:::\n\n## \n\n------------------------------------------------------------------------\n\n::: {card=\"🔹 Scatter: Events vs ROAS\"}\n\n::: {.cell title='Overview'}\n::: {.cell-output-display}\n![](dashboard_files/figure-html/unnamed-chunk-1-1.png){width=768}\n:::\n:::\n\n:::\n\n------------------------------------------------------------------------\n\n:::: {card}\n::: {columns}\n\n::: {.cell title='Cost Per Click'}\n::: {.cell-output-display}\n![](dashboard_files/figure-html/unnamed-chunk-2-1.png){width=576}\n:::\n:::\n\n:::\n\n\n::: {.cell title='Return of Ad Spend'}\n::: {.cell-output-display}\n![](dashboard_files/figure-html/unnamed-chunk-3-1.png){width=576}\n:::\n:::\n\n::::\n\n------------------------------------------------------------------------\n\n::: {.tabset card=\"📑 Top Channels\"}\n## Column - Plots\n\n### By Total Events\n\n\n::: {.cell title='By Total Events'}\n::: {.cell-output-display}\n![](dashboard_files/figure-html/unnamed-chunk-4-1.png){width=768}\n:::\n:::\n\n\n### By Average ROAS\n\n\n::: {.cell title='By Average ROAS'}\n::: {.cell-output-display}\n![](dashboard_files/figure-html/unnamed-chunk-5-1.png){width=768}\n:::\n:::\n\n:::\n\n------------------------------------------------------------------------\n\n::: {card=\"📌 Key Insights\"}\n-   **Organic Search** and **Direct** channels drive the highest volume of key events.\n-   **Paid channels** yield higher ROAS but lower event counts.\n-   Combining CPC and ROAS metrics helps optimize budget allocation.\n:::\n\n------------------------------------------------------------------------\n",
+    "supporting": [
+      "dashboard_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

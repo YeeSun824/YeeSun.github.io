@@ -1,0 +1,51 @@
+---
+title: "Zhongyi (Yee) Sun"
+image: IMG_3100.JPG
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/zhongyi-sun-528912ab/
+    - icon: envelope
+      text: Email
+      href: mailto:yeesun824@gmail.com
+---
+
+## [About Me]{style="color: #FFA500;"}
+
+I'm Zhongyi (Yee) Sun, a digital marketer with over a decade of experience in China’s sports media industry. My background spans media rights, sponsorship strategy, and business development—having worked closely with global sports properties like the Premier League and La Liga.
+
+Currently pursuing a Master of Science in Digital Marketing at Cal Poly Pomona, I’m focused on expanding my global perspective and enhancing my expertise in digital analytics, content marketing, and integrated campaigns.
+
+My passion lies in bridging international sports IP with innovative marketing solutions—driving growth through data, storytelling, and strategic partnerships. Whether it's content monetization or cross-border sponsorship activation, I aim to create meaningful connections between rights holders, brands, and fans.
+
+------------------------------------------------------------------------
+
+## [What I Do]{style="color: #FFA500;"}
+
+[**Sports Media & Sponsorship Strategy**]{style="color: steelblue;"}
+
+Develop and execute partnerships with major leagues (e.g., EPL, La Liga) to maximize media value and brand impact.
+
+[**Business Development & Rights Negotiation**]{style="color: steelblue;"}
+
+Lead media rights and sponsorship sales, connecting global sports IP with broadcasters, platforms, and brands.
+
+[**Content Monetization & Campaign Activation**]{style="color: steelblue;"}
+
+Create integrated marketing campaigns and original content to drive audience engagement and commercial returns.
+
+[**Digital Marketing & Analytics**]{style="color: steelblue;"}
+
+Apply data-driven strategies to optimize SEO, paid media, and user journeys—currently honing skills through a Master’s program.
+
+[**Cross-Cultural Brand Integration**]{style="color: steelblue;"}
+
+Bridge East-West markets by aligning international sports properties with culturally resonant marketing solutions.
+
+------------------------------------------------------------------------
+
+## [Let's Connect]{style="color: #FFA500;"}
+
+Passionate about connecting international sports properties with innovative marketing solutions-empowering rights holders and brands to thrive in the evolving global sports ecosystem.

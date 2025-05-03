@@ -1,59 +1,51 @@
 ---
 title: "Zhongyi (Yee) Sun"
-subtitle: "Sports Media Professional | Digital Marketing"
-image: profile.JPG
+image: IMG_3100.JPG
 about:
   template: jolla
   links:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/zhongyi-sun-528912ab/
+    - icon: envelope
+      text: Email
+      href: mailto:yeesun824@gmail.com
 ---
 
-Welcome! I'm a digital marketing graduate student with 10+ years of experience in China's sports industry, specializing in **sports media rights**, **partnership marketing**, and **brand consulting**.
+## [About Me]{style="color: #FFA500;"}
 
-Currently pursuing my **Master of Science in Digital Marketing** at **Cal Poly Pomona**, I aim to combine international marketing expertise with my sports media background to contribute to global sports organizations.
+I'm Zhongyi (Yee) Sun, a digital marketer with over a decade of experience in China’s sports media industry. My background spans media rights, sponsorship strategy, and business development—having worked closely with global sports properties like the Premier League and La Liga.
 
-------------------------------------------------------------------------
+Currently pursuing a Master of Science in Digital Marketing at Cal Poly Pomona, I’m focused on expanding my global perspective and enhancing my expertise in digital analytics, content marketing, and integrated campaigns.
 
-## 🎯 Career Aspiration
-
-I aspire to build a global career in **sports marketing**, where I can bridge the gap between international audiences and major sports properties. With over a decade of experience in **sports media rights, brand partnerships, and business development** in China, I bring a unique perspective to the evolving digital marketing landscape. My goal is to contribute to sports organizations by creating impactful, data-driven marketing strategies that enhance fan engagement, drive sponsorship value, and expand global reach—especially as I complete my **Master’s in Digital Marketing** at Cal Poly Pomona.
+My passion lies in bridging international sports IP with innovative marketing solutions—driving growth through data, storytelling, and strategic partnerships. Whether it's content monetization or cross-border sponsorship activation, I aim to create meaningful connections between rights holders, brands, and fans.
 
 ------------------------------------------------------------------------
 
-## 💼 Skills
+## [What I Do]{style="color: #FFA500;"}
 
-Sports Marketing / Media Marketing\
+[**Sports Media & Sponsorship Strategy**]{style="color: steelblue;"}
 
-Sports Media Rights & Partnerships\
+Develop and execute partnerships with major leagues (e.g., EPL, La Liga) to maximize media value and brand impact.
 
-Integrated Marketing Strategy\
+[**Business Development & Rights Negotiation**]{style="color: steelblue;"}
 
-Business Development\
+Lead media rights and sponsorship sales, connecting global sports IP with broadcasters, platforms, and brands.
 
-Content Marketing, SEO & Google Analytics\
+[**Content Monetization & Campaign Activation**]{style="color: steelblue;"}
 
-Fluent in Mandarin and English
+Create integrated marketing campaigns and original content to drive audience engagement and commercial returns.
 
-------------------------------------------------------------------------
+[**Digital Marketing & Analytics**]{style="color: steelblue;"}
 
-## 🎓 Education
+Apply data-driven strategies to optimize SEO, paid media, and user journeys—currently honing skills through a Master’s program.
 
-**Cal Poly Pomona**, CA\
-*Master of Science: Digital Marketing* (Expected 08/2025)
+[**Cross-Cultural Brand Integration**]{style="color: steelblue;"}
 
-**Beijing Technology and Business University**, Beijing\
-*Bachelor's Degree: International Business/Trade/Commerce* (07/2011)
+Bridge East-West markets by aligning international sports properties with culturally resonant marketing solutions.
 
 ------------------------------------------------------------------------
 
-## 🧾 Certifications
+## [Let's Connect]{style="color: #FFA500;"}
 
-Google Analytics Certification\
-
-Digital Advertising Certification\
-
-Email Marketing Certification\
-
-Inbound Marketing Certification
+Passionate about connecting international sports properties with innovative marketing solutions-empowering rights holders and brands to thrive in the evolving global sports ecosystem.
